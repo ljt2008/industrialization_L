@@ -1,3 +1,6 @@
+/*
+  常用的基础组件
+*/
 import {computed, defineComponent, inject, mergeProps, provide, ref} from "vue";
 import {FuncContextKey, RowContextKey} from "@/utils/ProvideKeys";
 import {msgError} from "@/utils/message";
@@ -160,7 +163,7 @@ export const UFuncTag = defineComponent({
         let tagColor = this.disabled ? '#d8d8d8' : this.tagColor;
         let disabledClass = this.disabled ? 'ivz-func-disabled' : 'ivz-func-tag'
         return <ATag closable={false} class={disabledClass} class="u-func" bordered={false}
-                     color={tagColor} onClick={this.clickProxy} v-slots={this.$slots} />
+                    color={tagColor} onClick={this.clickProxy} v-slots={this.$slots} />
     },
     deactivated() {
         if(this['modalRef']) {

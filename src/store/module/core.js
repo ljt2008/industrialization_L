@@ -490,66 +490,61 @@ const registerSysModule = function (store) {
                 }).catch(reason => reason)
             },
             initMenus: ({commit, state}) => {
-                 return getMenus().then((resp) => {
-                     if(resp) {
-                         let {data} = resp;
-                         state.views = data;
+                return getMenus().then((resp) => {
+                    if(resp) {
+                        let {data} = resp;
+                        state.views = data;
                          // state.activeView = state.views[0];
-                         let {urlMenuMap, idMenuMap} = resolverMenuMaps(data);
-                         state.idMenuMaps = idMenuMap;
+                        let {urlMenuMap, idMenuMap} = resolverMenuMaps(data);
+                        state.idMenuMaps = idMenuMap;
 
                          // 加入到菜单列表
-                         if(urlMenuMap != null) {
-                             Object.keys(urlMenuMap).forEach(key => {
-                                 state.urlMenuMaps[key] = urlMenuMap[key];
-                             })
-                         }
-
-                         resolverMenuToRoutes(urlMenuMap);
+                        if(urlMenuMap != null) {
+                            Object.keys(urlMenuMap).forEach(key => {
+                                state.urlMenuMaps[key] = urlMenuMap[key];
+                            })
+                        }
+                        resolverMenuToRoutes(urlMenuMap);
                          state.init = true; // 声明路由信息已经初始化完成
                          // 注册菜单名称和url过滤器
-                         commit('registerSearchFilter', new SearchFilter("菜单", 'menu', function (key) {
-                             let filter = this;
-                             let nameSearchResultModels = Object.values(urlMenuMap)
-                                 .filter(menu => menu.name && menu.name.includes(key))
-                                 .map(menu => {
-                                     return new SearchResultModel(`menu:${menu.id}`, menu.name, menu, filter);
-                                 });
+                        commit('registerSearchFilter', new SearchFilter("菜单", 'menu', function (key) {
+                            let filter = this;
+                            let nameSearchResultModels = Object.values(urlMenuMap)
+                                .filter(menu => menu.name && menu.name.includes(key))
+                                .map(menu => {
+                                    return new SearchResultModel(`menu:${menu.id}`, menu.name, menu, filter);
+                                });
 
-                             let urlSearchResultModels = Object.values(urlMenuMap)
-                                 .filter(menu => menu.url && menu.url.includes(key))
-                                 .map(menu => {
-                                     return new SearchResultModel(`menu:${menu.id}`, menu.url, menu, filter);
-                                 });
-
+                            let urlSearchResultModels = Object.values(urlMenuMap)
+                                .filter(menu => menu.url && menu.url.includes(key))
+                                .map(menu => {
+                                    return new SearchResultModel(`menu:${menu.id}`, menu.url, menu, filter);
+                                });
                             return [...nameSearchResultModels, ...urlSearchResultModels];
-                         }, (model) => {
-                             let record = model['record'];
-                             return router.push(record.url)
-                         }))
-
+                        }, (model) => {
+                            let record = model['record'];
+                            return router.push(record.url)
+                        }))
                          // 注册url和字典过滤器
-                         commit('registerSearchFilter', new SearchFilter("字典/url", 'options', function (key) {
-                             let filter = this;
-                             return Object.keys(state.optionsMaps)
-                                 .filter(item => item.includes(key))
-                                 .map(key => {
-                                     let result = state.optionsMaps[key];
-                                     return new SearchResultModel(`options:${key}`, key, result, filter);
-                                 })
-                         }, (model) => {
-                             let record = model['record'];
-                             if(record.type == 'dict') {
-                                 return router.push({path: '/core/dict/data', query: {type: model.label}})
-                             } else {
-                                 state.searchResultData = {title: `请求地址：${model.label}`, data: record['options']};
-                                 return router.push({path: `/search/result/data`})
-                             }
-                         }))
-
-                         return urlMenuMap;
-                     }
-
+                        commit('registerSearchFilter', new SearchFilter("字典/url", 'options', function (key) {
+                            let filter = this;
+                            return Object.keys(state.optionsMaps)
+                                .filter(item => item.includes(key))
+                                .map(key => {
+                                    let result = state.optionsMaps[key];
+                                    return new SearchResultModel(`options:${key}`, key, result, filter);
+                                })
+                        }, (model) => {
+                            let record = model['record'];
+                            if(record.type == 'dict') {
+                                return router.push({path: '/core/dict/data', query: {type: model.label}})
+                            } else {
+                                state.searchResultData = {title: `请求地址：${model.label}`, data: record['options']};
+                                return router.push({path: `/search/result/data`})
+                            }
+                        }))
+                        return urlMenuMap;
+                    }
                     return {};
                 }).catch(reason => reason);
             },

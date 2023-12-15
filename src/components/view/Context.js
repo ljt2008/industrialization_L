@@ -172,8 +172,8 @@ export function $View(context) {
      * @param param {Config}
      */
     this.del = function ({method, url, data, func, uid
-                             , config: {confirmTitle, confirmContent}, callback
-         , context, params, funcPath, reload}) {
+                            , config: {confirmTitle, confirmContent}, callback
+        , context, params, funcPath, reload}) {
 
         let linkContext = context.getLinkContext();
         let tableContext = linkContext.getChildrenContext(CoreConsts.DefaultTableUid);

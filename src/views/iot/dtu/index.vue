@@ -233,7 +233,6 @@
        * @type {WebSocket}
        */
       let debugSocket = ref(null);
-
       let editModel = ref({});
       let searchModel = ref({});
       let debugInfo = ref([]);

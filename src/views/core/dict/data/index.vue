@@ -3,8 +3,8 @@
     <UViewSearch v-model="searchModel">
       <URow col="search">
         <USelectItem label="字典标识" field="type" @change="loadDictData"
-                 url="/core/dictType/list" labelField="name" valueField="type"
-                 :defaultValue="type"/>
+                url="/core/dictType/list" labelField="name" valueField="type"
+                :defaultValue="type"/>
         <UInputItem label="数据名称" field="name" />
         <UButton func="query" url="/core/dictData/view" ref="queryFunc">查询</UButton>&nbsp;
         <UButton func="add" url="/core/dictData/add">新增</UButton>&nbsp;

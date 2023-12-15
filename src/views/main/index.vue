@@ -18,12 +18,9 @@
               </transition>
             </router-view>
           </div>
-
           <!-- 用户中心 -->
           <UserCenter />
-
         </a-layout-content>
-
       </a-layout>
     </a-layout>
 </template>

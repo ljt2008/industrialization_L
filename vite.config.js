@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('path')
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 // https://github.com/vuejs/jsx-next#syntax
@@ -7,15 +7,12 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 // https://vitejs.dev/config/
 export default defineConfig((env) => {
   return {
-    plugins: [
-      vue(),
-      vueJsx(),
-    ],
+    plugins: [vue(), vueJsx()],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, './src'),
-        '@msn': path.resolve(__dirname, './src/views')
-      }
+        '@msn': path.resolve(__dirname, './src/views'),
+      },
     },
     server: {
       proxy: {
@@ -27,11 +24,11 @@ export default defineConfig((env) => {
           target: 'http://localhost:8085',
           rewrite: (path) => {
             return path.replace(/^\/api/, '')
-          }
+          },
         },
       },
       cors: true,
-      host: '0.0.0.0'
+      host: '0.0.0.0',
     },
     optimizeDeps: {
       include: [],
@@ -47,7 +44,7 @@ export default defineConfig((env) => {
         // }
       },
       sourcemap: false,
-      cssCodeSplit: true
-    }
+      cssCodeSplit: true,
+    },
   }
 })

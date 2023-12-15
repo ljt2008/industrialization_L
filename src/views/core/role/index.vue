@@ -35,7 +35,7 @@
         <a-checkbox style="float: right" v-model:checked="checkedValue" @change="checked">全选</a-checkbox>
 
         <UTree field="menuIds" url="/core/role/allMenus" :checkStrictly="false"
-               showLine checkable ref="funcMenus" style="margin-top: 12px"/>
+              showLine checkable ref="funcMenus" style="margin-top: 12px"/>
       </template>
       <template #footer>
         <UButton func="submit" url="/core/role/perm">提交</UButton>

@@ -1,23 +1,22 @@
-import { msgWarn } from "@/utils/message";
-import { urlConfig } from "@/utils/request";
+import { msgWarn } from '@/utils/message'
+import { urlConfig } from '@/utils/request'
 
 /**
  * @param type {String} 调试类型
  * @param onmessage {Function} 调试消息回调函数
  * @constructor
  */
-export function DebugWebsocket (type, onmessage) {
-
-  let clientSn = "SN:" + new Date().getTime().toString(36).toUpperCase();
-  let websocket = new WebSocket(urlConfig.getFullWsURL(`/ws/iot/debug?clientSn=${clientSn}&type=${type}`));
+export function DebugWebsocket(type, onmessage) {
+  let clientSn = 'SN:' + new Date().getTime().toString(36).toUpperCase()
+  let websocket = new WebSocket(urlConfig.getFullWsURL(`/ws/iot/debug?clientSn=${clientSn}&type=${type}`))
 
   websocket.onmessage = (ev) => {
-    let data = JSON.parse(ev.data);
+    let data = JSON.parse(ev.data)
     if (onmessage instanceof Function) {
       if (data.code == 500) {
-        msgWarn(data.message).then();
+        msgWarn(data.message).then()
       } else {
-        onmessage(data);
+        onmessage(data)
       }
     } else {
       console.log(`接收到消息：${ev.data}`)
@@ -30,13 +29,13 @@ export function DebugWebsocket (type, onmessage) {
    */
   this.debug = function (model) {
     let message = { clientSn, model }
-    console.log("modl:" + JSON.stringify(model));
-    console.log("mssag:" + JSON.stringify(message));
-    websocket.send(JSON.stringify(message));
+    console.log('modl:' + JSON.stringify(model))
+    console.log('mssag:' + JSON.stringify(message))
+    websocket.send(JSON.stringify(message))
   }
 
   this.getWebSocket = function () {
-    return websocket;
+    return websocket
   }
 }
 
@@ -45,11 +44,10 @@ export function DebugWebsocket (type, onmessage) {
  * @param onmessage
  * @constructor
  */
-export function HealthWebsocket (type, onmessage) {
-
-  this.isSuspend = false;
-  this.intervalValue = null;
-  this.websocket = new WebSocket(urlConfig.getFullWsURL(`/ws/endpoint/health`));
+export function HealthWebsocket(type, onmessage) {
+  this.isSuspend = false
+  this.intervalValue = null
+  this.websocket = new WebSocket(urlConfig.getFullWsURL(`/ws/endpoint/health`))
 
   this.websocket.onopen = () => {
     // 先发送一次
@@ -57,11 +55,11 @@ export function HealthWebsocket (type, onmessage) {
   }
 
   this.websocket.onmessage = function (ev) {
-    let resp = JSON.parse(ev.data);
+    let resp = JSON.parse(ev.data)
     if (resp['code'] == 200) {
-      onmessage(resp['data']);
+      onmessage(resp['data'])
     } else {
-      console.error(resp['msg']);
+      console.error(resp['msg'])
     }
   }
 
@@ -69,29 +67,29 @@ export function HealthWebsocket (type, onmessage) {
    * 暂停
    */
   this.suspend = function () {
-    this.isSuspend = true;
+    this.isSuspend = true
   }
 
   /**
    * 启用
    */
   this.start = function () {
-    this.isSuspend = false;
+    this.isSuspend = false
   }
 
   /**
    * 停止定时任务
    */
   this.stop = function () {
-    clearInterval(this.intervalValue);
+    clearInterval(this.intervalValue)
   }
 
   /**
    * 关闭websocket和定时任务
    */
   this.close = function () {
-    this.stop();
-    this.websocket.close(); // 正常关闭socket
+    this.stop()
+    this.websocket.close() // 正常关闭socket
   }
 
   /**
@@ -103,6 +101,6 @@ export function HealthWebsocket (type, onmessage) {
       if (!this.isSuspend) {
         this.websocket.send(JSON.stringify({ type: type }))
       }
-    }, rate);
+    }, rate)
   }
 }

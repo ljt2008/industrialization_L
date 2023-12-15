@@ -30,7 +30,7 @@
             <UInputItem field="name" label="点位名称" :allowClear="true"/>
             <UInputItem field="fieldName" label="字段名" :allowClear="true"/>
             <USelectItem field="modelId" label="设备型号" :allowClear="true" labelField="model" valueField="id"
-                     url="/iot/deviceModel/listByType?typeId={typeId}"/>
+                    url="/iot/deviceModel/listByType?typeId={typeId}"/>
             <UButton func="query" url="/iot/signal/view" ref="searchRef">搜索</UButton>
             <UButton func="reset">重置</UButton>
             <UButton func="add" url="/iot/signal/add" v-auth="'iot:signal:add'">新增</UButton>

@@ -1,4 +1,5 @@
-import {http} from "@/utils/request";
+import { http } from '@/utils/request'
 
+export { http }
 
-export {http}
+// 导出http

@@ -42,7 +42,6 @@
                   <span style="font-size: 12px; color: #d1d1d1">搜索历史</span>
                 </a-divider>
                 <div class="iv-search-history">
-
                 </div>
               </AModal>
             </div>
