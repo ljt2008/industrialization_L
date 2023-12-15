@@ -19,7 +19,7 @@
             </router-view>
           </div>
           <!-- 用户中心 -->
-          <UserCenter />
+          <!-- <UserCenter /> -->
         </a-layout-content>
       </a-layout>
     </a-layout>
@@ -28,10 +28,15 @@
 <script>
 import {provide, reactive, ref} from 'vue'
 import { mapGetters, useStore } from "vuex";
+//侧边栏
 import LayoutSider from "@msn/main/LayoutSider.vue";
-import LayoutHeader from "@msn/main/LayoutHeader.vue";
+//头部
+import LayoutHeader from "@msn/main/LayoutHeader.vue";   
+//不知道是什么，先注释了
 import UserCenter from "@msn/main/UserCenter.vue";
+//暂时不知道是什么
 import {GlobalConfigKey, RowContextKey, ViewContextKey} from "@/utils/ProvideKeys";
+//动态生成标签
 import TaskBar from "@msn/main/TaskBar.vue";
 
 export default {
@@ -71,7 +76,7 @@ export default {
     computed: {
         ...mapGetters({
             theme: 'sys/theme',
-            taskBarData: 'sys/taskBarData',
+            taskBarData: 'sys/taskBarData',    //任务栏打开的菜单
         }),
         // 用于缓存视图页
         alive () {

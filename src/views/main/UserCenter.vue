@@ -33,11 +33,6 @@
                 </a-tabs>
             </div>
         </template>
-        <!--    <div class="ivz-ui-content">-->
-        <!--&lt;!&ndash;      <div class="ivz-uic-profile">&ndash;&gt;-->
-        <!--&lt;!&ndash;        <UserProfile />&ndash;&gt;-->
-        <!--&lt;!&ndash;      </div>&ndash;&gt;-->
-        <!--    </div>-->
     </a-drawer>
 </template>
 <!--用户中心-->

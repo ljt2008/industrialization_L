@@ -78,8 +78,15 @@ const loginModel = reactive({
   captchaImg: null,
   class: 'iz-login-tip-error'
 });
+
+/*
+validateInfos: 表单验证信息，包含了各个表单项的验证状态。
+validate: 用于触发整个表单的验证。
+validateField: 用于触发单个表单项的验证。
+ */
 const {validateInfos, validate, validateField} = Form.useForm(user);
 
+//得到 message code data
 const clickImg = () => {
   getCode().then(({message, code, data}) => {
     if(code == CoreConsts.SuccessCode) {
@@ -92,6 +99,7 @@ const clickImg = () => {
 }
 
 clickImg();
+
 const oauth2Login = (type) => {
   oauth2(type)
 }

@@ -1,9 +1,12 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
+    "target": "es5",
+    "lib": ["es2020", "dom"],
+    //.表示根目录， ./表示当前目录
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["/src/*"],
-      "@msn/*": ["/src/views/*"]
+      "@/*": ["src/*"],
+      "@msn/*": ["src/views/*"]
     }
   },
   "exclude": ["node_modules", "dist"]
