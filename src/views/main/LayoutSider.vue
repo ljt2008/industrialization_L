@@ -12,7 +12,7 @@
       <!-- menu.type是V -- 最后一层 M 还有children -->
       <a-menu @select="selectMenu" mode="inline" :openKeys="openKeys"
               :selectedKeys="sys.selectedKeys" @openChange="openChange" theme="dark">
-        <template v-for="menu in menus">
+        <template v-for="menu in myMenus">
           <template v-if="menu.type=='V'">
             <a-menu-item :key="menu.url">
               <UIcon class="iv-menu-icon" :type="menu.icon || 'iz-icon-icon'" />
@@ -41,9 +41,304 @@ import store from "@/store";
 export default {
   name: "LayoutSider",
   setup() {
+    const myMenus = [
+      {
+        children:[
+          {
+            children: null,
+            createTime: "2023-05-23",
+            icon: "iz-icon-device",
+            id: 1230,
+            msn: "iot",
+            name: "设备信息",
+            perms: "iot:device:view",
+            pid: 1304,
+            remark: "",
+            section: null,
+            sort: 128,
+            status: "enabled",
+            type: "V",
+            updateTime: null,
+            url: "/iot/device"
+          },
+          {
+            children: null,
+            createTime: "2023-05-23",
+            icon: "iz-icon-model",
+            id: 1266,
+            msn: "iot",
+            name: "设备型号",
+            perms: "iot:deviceModel:view",
+            pid: 1304,
+            remark: "",
+            section: null,
+            sort: 158,
+            status: "enabled",
+            type: "V",
+            updateTime: null,
+            url: "/iot/deviceModel"
+          },
+          {
+            children: null,
+            createTime: "2023-05-23",
+            icon: "iz-icon-type",
+            id: 1225,
+            msn: "iot",
+            name: "设备类型",
+            perms: "iot:deviceType:view",
+            pid: 1304,
+            remark: "",
+            section: null,
+            sort: 158,
+            status: "enabled",
+            type: "V",
+            updateTime: null,
+            url: "/iot/deviceType"
+          },
+        ],
+        createTime: "2023-05-23",
+        icon: "iz-icon-basic-config",
+        id: 1304,
+        msn: "iot",
+        name: "基础信息",
+        perms: "#",
+        pid: 0,
+        remark: "",
+        section: null,
+        sort: 20,
+        status: "enabled",
+        type: "M",
+        updateTime: null,
+        url: "#"
+      },
+      {
+        children: [
+          {
+            children: null,
+            createTime: "2023-05-23",
+            icon: "iz-icon-serial",
+            id: 1293,
+            msn: "iot",
+            name: "串口设备",
+            perms: "iot:serial:view",
+            pid: 1224,
+            remark: "",
+            section: null,
+            sort: 158,
+            status: "enabled",
+            type: "V",
+            updateTime: null,
+            url: "/iot/serial"
+          },
+          {
+            children: null,
+            createTime: "2023-05-23",
+            icon: "iz-icon-plc",
+            id: 1235,
+            msn: "iot",
+            name: "PLC管理",
+            perms: "iot:plc:view",
+            pid: 1224,
+            remark: "",
+            section: null,
+            sort: 200,
+            status: "enabled",
+            type: "V",
+            updateTime: null,
+            url: "/iot/plc"
+          },
+          {
+            children: null,
+            createTime: "2023-05-23",
+            icon: "iz-icon-dtube",
+            id: 1237,
+            msn: "iot",
+            name: "DTU管理",
+            perms: "iot:dtu:view",
+            pid: 1224,
+            remark: "",
+            section: null,
+            sort: 250,
+            status: "enabled",
+            type: "V",
+            updateTime: null,
+            url: "/iot/dtu"
+          },
+          {
+            children: null,
+            createTime: "2023-05-23",
+            icon: "iz-icon-modbus",
+            id: 1282,
+            msn: "iot",
+            name: "Modbus管理",
+            perms: null,
+            pid: 1224,
+            remark: "",
+            section: null,
+            sort: 280,
+            status: "enabled",
+            type: "V",
+            updateTime: null,
+            url: "/iot/modbus"
+          },
+          {
+            children:[
+              {
+                children: null,
+                createTime: "2023-05-23",
+                icon: "iz-icon-signal",
+                id: 1261,
+                msn: "iot",
+                name: "点位管理",
+                perms: "iot:signal:view",
+                pid: 1272,
+                remark: "",
+                section: null,
+                sort: 18,
+                status: "enabled",
+                type: "V",
+                updateTime: null,
+                url: "/iot/signal"
+              },
+              {
+                children: null,
+                createTime: "2023-05-23",
+                icon: "iz-icon-set",
+                id: 1256,
+                msn: "iot",
+                name: "点位组管理",
+                perms: "iot:pointGroup:view",
+                pid: 1272,
+                remark: "",
+                section: null,
+                sort: 58,
+                status: "enabled",
+                type: "V",
+                updateTime: null,
+                url: "/iot/pointGroup"
+              },
+              {
+                children: null,
+                createTime: "2023-05-23",
+                icon: "iz-icon-collect-task",
+                id: 1275,
+                msn: "iot",
+                name: "采集任务管理",
+                perms: "iot:collectTask:view",
+                pid: 1272,
+                remark: "",
+                section: null,
+                sort: 158,
+                status: "enabled",
+                type: "V",
+                updateTime: null,
+                url: "/iot/collectTask"
+              },
+              {
+                children: null,
+                createTime: "2023-05-23",
+                icon: "#",
+                id: 1288,
+                msn: "iot",
+                name: "采集数据列表",
+                perms: "iot:collectData:view",
+                pid: 1272,
+                remark: "",
+                section: null,
+                sort: 188,
+                status: "enabled",
+                type: "V",
+                updateTime: null,
+                url: "/iot/collectData"
+              }
+            ],
+            createTime: "2023-05-23",
+            icon: "iz-icon-collect",
+            id: 1272,
+            msn: "iot",
+            name: "数据采集",
+            perms: null,
+            pid: 1224,
+            remark: "",
+            section: null,
+            sort: 300,
+            status: "enabled",
+            type: "M",
+            updateTime: null,
+            url: "#"
+          },
+          {
+            children: [
+              {
+                children: null,
+                createTime: "2023-05-23",
+                icon: "#",
+                id: 1274,
+                msn: "iot",
+                name: "DTU模拟",
+                perms: null,
+                pid: 1273,
+                remark: "",
+                section: null,
+                sort: 20,
+                status: "enabled",
+                type: "V",
+                updateTime: null,
+                url: "/iot/simulator/dtu"
+              },
+              {
+                children: null,
+                createTime: "2023-05-23",
+                icon: "iz-icon-debug-tools",
+                id: 1255,
+                msn: "iot",
+                name: "网络调试",
+                perms: "",
+                pid: 1273,
+                remark: "",
+                section: null,
+                sort: 300,
+                status: "enabled",
+                type: "V",
+                updateTime: null,
+                url: "/iot/debug"
+              }
+            ],
+            createTime: "2023-05-23",
+            icon: "iz-icon-debug",
+            id: 1273,
+            msn: "iot",
+            name: "调试工具",
+            perms: null,
+            pid: 1224,
+            remark: "",
+            section: null,
+            sort: 320,
+            status: "enabled",
+            type: "M",
+            updateTime: null,
+            url: "#"
+          }
+        ],
+        createTime: "2023-05-23",
+        icon: "iz-icon-iiot",
+        id: 1224,
+        msn: "iot",
+        name: "工业物联网",
+        perms: null,
+        pid: 0,
+        remark: "",
+        section: null,
+        sort: 30,
+        status: "enabled",
+        type: "M",
+        updateTime: null,
+        url: "#"
+      }
+    ];
     let themeConfig = inject(ThemeConfigKey);
     let sys = store.state.sys;
-    return {themeConfig, sys}
+    return {themeConfig, sys, myMenus}
   },
   components: {IvzSubMenu},
   computed: {
@@ -97,7 +392,6 @@ export default {
 
     // 点击跳转
     selectMenu(menu) {
-      console.log(menu)
       //key 就是路由路径
       this.$router.push(menu.key).then(() => {
         //说实话，这个函数我也没太看懂   貌似删了问题也不大   貌似就是利用一个变量记录一下此时这个路由url   还是不注释掉了
@@ -108,9 +402,10 @@ export default {
     // SubMenu 展开/关闭的回调   就是每个有children的menu点击后的回调 
     openChange(openKeys) {
       console.log(openKeys)
+      console.log('menus', this.menus)
       if(this.sysMenuLevel == 'one') {
         const latestOpenKey = openKeys.find(key => this.openKeys.indexOf(key) === -1);
-        if (!this.menus.find(item => item.id == latestOpenKey)) {
+        if (!this.myMenus.find(item => item.id == latestOpenKey)) {
           this.switchOpenSubMenuTo(openKeys);
         } else {
           this.switchOpenSubMenuTo(latestOpenKey ? [latestOpenKey] : []);

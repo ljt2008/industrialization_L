@@ -325,9 +325,6 @@ export default {
 </script>
 
 <style scoped>
-.u-core-index {
-
-}
 .u-row {
   margin: 8px 8px 16px;
 }
