@@ -290,6 +290,8 @@ const registerSysModule = function (store) {
           console.error(`打开菜单失败(组件不存在或者未注册路由)`)
         })
       },
+
+      // Or是个啥？？？
       openOrSwitchTask: (state, route) => {
         let path = route.path
         // 首页(工作台)作为第一个任务
@@ -329,11 +331,10 @@ const registerSysModule = function (store) {
       },
       // 切换激活的菜单
       switchActiveMenuTo: (state, url) => {
-        let menu = state.urlMenuMaps[url]
-
+        let menu = state.urlMenuMaps[url] // 这个url对应的menu
         if (menu) {
           state.activeMenu = menu
-
+          //清空数组
           state.selectedKeys.length = 0
           state.selectedKeys.push(menu.url)
         } else {
@@ -393,24 +394,6 @@ const registerSysModule = function (store) {
       toggleUserVisible: (state, { visible, key }) => {
         state.userKey = key || state.userKey
         state.userVisible = visible != null ? visible : state.userVisible
-      },
-
-      /**
-       * 全局搜索
-       * @param key 关键字
-       */
-      onGlobalSearch: (state, key) => {
-        state.searchResultModel.length = 0
-        if (key) {
-          state.searchFilter.forEach((filter) => {
-            try {
-              let result = filter.filter(key)
-              state.searchResultModel.push(...result)
-            } catch (e) {
-              console.error(`搜索过滤[${filter.name}]异常[${e}]`)
-            }
-          })
-        }
       },
 
       /**

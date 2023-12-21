@@ -78,6 +78,7 @@ router.beforeResolve((to, form, next) => {
   // 登录页面不放到任务栏
   if (to.name != 'refresh' && to.path != '/login') {
     // 如果不需要加入到任务栏
+    console.log('meat', to.meta)
     if (to.meta && to.meta['taskBar'] === false) {
       //    什么都不做
     } else {

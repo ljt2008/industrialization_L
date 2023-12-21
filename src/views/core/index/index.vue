@@ -1,32 +1,11 @@
 <template>
   <div style="width: 100%; height: 100%; overflow: auto" class="u-core-index">
-    <ARow type="flex" style="margin: 8px 8px 16px" class="u-row">
-      <ACol flex="1 1 268px">
-        <div class="u-col-statistic">
-          <a-statistic title="当前在线人数" :value="currentOnlineDto.currentOnline" />
-        </div>
-      </ACol>
-      <ACol flex="1 1 268px">
-        <div class="u-col-statistic">
-          <a-statistic title="当天访问人数" :value="currentOnlineDto.todayAccess"/>
-        </div>
-      </ACol>
-      <ACol flex="1 1 268px">
-        <div class="u-col-statistic">
-          <a-statistic title="设备总数 / 在线数" :value="currentDeviceDto.today">
-            <template #suffix>
-              <span>/ {{currentDeviceDto.online}}</span>
-            </template>
-          </a-statistic>
-        </div>
-      </ACol>
-    </ARow>
-    <ACard title="物联网服务概况" class="u-row" size="small">
+    <ACard title="服务状况" class="u-row" size="small">
       <ARow type="flex" class="u-row">
         <ACol flex="auto">
-          <div id="iot-server" style="height: 280px"></div>
+          <div id="iot-server" style="height: 280px; width: 100%;"></div>
         </ACol>
-        <ACol flex="460px">
+        <!-- <ACol flex="460px">
           <ATable :columns="ComponentColumns" :data-source="serverComponents" :pagination="false" :showHeader="false">
             <template #title>
               <div style="text-align: center; font-size: 18px">
@@ -34,13 +13,13 @@
               </div>
             </template>
           </ATable>
-        </ACol>
+        </ACol> -->
       </ARow>
     </ACard>
-    <ACard title="服务器概况" class="u-row" size="small">
+    <ACard title="服务器状况" class="u-row" size="small">
       <ARow type="flex" class="u-row">
         <ACol flex="500px">
-          <div id="iot-system-pm" style="width: 500px; height: 200px"></div>
+          <div id="iot-system-pm" style="width: 100%; height: 200px"></div>
           <a-card class="iot-system-profile">
             <a-card-grid style="width: 50%; text-align: center">
               操作系统：{{systemHealth.os}}
