@@ -6,7 +6,8 @@
       <!-- 顶部logo -->
       <div class="iv-header u-logo iv-primary-divider" style="background-color: #001529;">
           <a-avatar :size="36" :src="sysLogo" class="my-avatar"></a-avatar>
-          <span class="u-logo-title" style="color: #fff;">{{sysName}}</span>
+          <span class="u-logo-title" style="color: #fff;">柚见智居
+</span>
       </div>
       <!-- 动态导航栏    ---   important -->
       <!-- menu.type是V -- 最后一层 M 还有children -->
@@ -24,7 +25,7 @@
             <ivz-sub-menu :menu="menu"/>
           </template>
         </template>
-      </a-menu>
+      </a-menu> 
     </div>
   </a-layout-sider>
 </template>
@@ -100,7 +101,7 @@ export default {
         icon: "iz-icon-basic-config",
         id: 1304,
         msn: "iot",
-        name: "基础信息",
+        name: "智居数字孪生",
         perms: "#",
         pid: 0,
         remark: "",
@@ -113,47 +114,47 @@ export default {
       },
       {
         children: [
-          {
-            children: null,
-            createTime: "2023-05-23",
-            icon: "iz-icon-serial",
-            id: 1293,
-            msn: "iot",
-            name: "串口设备",
-            perms: "iot:serial:view",
-            pid: 1224,
-            remark: "",
-            section: null,
-            sort: 158,
-            status: "enabled",
-            type: "V",
-            updateTime: null,
-            url: "/iot/serial"
-          },
-          {
-            children: null,
-            createTime: "2023-05-23",
-            icon: "iz-icon-plc",
-            id: 1235,
-            msn: "iot",
-            name: "PLC管理",
-            perms: "iot:plc:view",
-            pid: 1224,
-            remark: "",
-            section: null,
-            sort: 200,
-            status: "enabled",
-            type: "V",
-            updateTime: null,
-            url: "/iot/plc"
-          },
+          // {
+          //   children: null,
+          //   createTime: "2023-05-23",
+          //   icon: "iz-icon-log",
+          //   id: 1293,
+          //   msn: "iot",
+          //   name: "串口设备",
+          //   perms: "iot:serial:view",
+          //   pid: 1224,
+          //   remark: "",
+          //   section: null,
+          //   sort: 158,
+          //   status: "enabled",
+          //   type: "V",
+          //   updateTime: null,
+          //   url: "/iot/serial"
+          // },
+          // {
+          //   children: null,
+          //   createTime: "2023-05-23",
+          //   icon: "iz-icon-plc",
+          //   id: 1235,
+          //   msn: "iot",
+          //   name: "PLC管理",
+          //   perms: "iot:plc:view",
+          //   pid: 1224,
+          //   remark: "",
+          //   section: null,
+          //   sort: 200,
+          //   status: "enabled",
+          //   type: "V",
+          //   updateTime: null,
+          //   url: "/iot/plc"
+          // },
           {
             children: null,
             createTime: "2023-05-23",
             icon: "iz-icon-dtube",
             id: 1237,
             msn: "iot",
-            name: "DTU管理",
+            name: "智能家居网关管理",
             perms: "iot:dtu:view",
             pid: 1224,
             remark: "",
@@ -164,23 +165,23 @@ export default {
             updateTime: null,
             url: "/iot/dtu"
           },
-          {
-            children: null,
-            createTime: "2023-05-23",
-            icon: "iz-icon-modbus",
-            id: 1282,
-            msn: "iot",
-            name: "Modbus管理",
-            perms: null,
-            pid: 1224,
-            remark: "",
-            section: null,
-            sort: 280,
-            status: "enabled",
-            type: "V",
-            updateTime: null,
-            url: "/iot/modbus"
-          },
+          // {
+          //   children: null,
+          //   createTime: "2023-05-23",
+          //   icon: "iz-icon-modbus",
+          //   id: 1282,
+          //   msn: "iot",
+          //   name: "Modbus管理",
+          //   perms: null,
+          //   pid: 1224,
+          //   remark: "",
+          //   section: null,
+          //   sort: 280,
+          //   status: "enabled",
+          //   type: "V",
+          //   updateTime: null,
+          //   url: "/iot/modbus"
+          // },
           {
             children:[
               {
@@ -237,7 +238,7 @@ export default {
               {
                 children: null,
                 createTime: "2023-05-23",
-                icon: "#",
+                icon: "iz-icon-quartz",
                 id: 1288,
                 msn: "iot",
                 name: "采集数据列表",
@@ -256,7 +257,7 @@ export default {
             icon: "iz-icon-collect",
             id: 1272,
             msn: "iot",
-            name: "数据采集",
+            name: "智能家居数据采集",
             perms: null,
             pid: 1224,
             remark: "",
@@ -267,66 +268,83 @@ export default {
             updateTime: null,
             url: "#"
           },
-          {
-            children: [
-              {
-                children: null,
-                createTime: "2023-05-23",
-                icon: "#",
-                id: 1274,
-                msn: "iot",
-                name: "DTU模拟",
-                perms: null,
-                pid: 1273,
-                remark: "",
-                section: null,
-                sort: 20,
-                status: "enabled",
-                type: "V",
-                updateTime: null,
-                url: "/iot/simulator/dtu"
-              },
-              {
-                children: null,
-                createTime: "2023-05-23",
-                icon: "iz-icon-debug-tools",
-                id: 1255,
-                msn: "iot",
-                name: "网络调试",
-                perms: "",
-                pid: 1273,
-                remark: "",
-                section: null,
-                sort: 300,
-                status: "enabled",
-                type: "V",
-                updateTime: null,
-                url: "/iot/debug"
-              }
-            ],
-            createTime: "2023-05-23",
-            icon: "iz-icon-debug",
-            id: 1273,
-            msn: "iot",
-            name: "调试工具",
-            perms: null,
-            pid: 1224,
-            remark: "",
-            section: null,
-            sort: 320,
-            status: "enabled",
-            type: "M",
-            updateTime: null,
-            url: "#"
-          }
+          // {
+          //   children: [
+          //     {
+          //       children: null,
+          //       createTime: "2023-05-23",
+          //       icon: "iz-icon-menu",
+          //       id: 1274,
+          //       msn: "iot",
+          //       name: "DTU模拟",
+          //       perms: null,
+          //       pid: 1273,
+          //       remark: "",
+          //       section: null,
+          //       sort: 20,
+          //       status: "enabled",
+          //       type: "V",
+          //       updateTime: null,
+          //       url: "/iot/simulator/dtu"
+          //     },
+          //     {
+          //       children: null,
+          //       createTime: "2023-05-23",
+          //       icon: "iz-icon-debug-tools",
+          //       id: 1255,
+          //       msn: "iot",
+          //       name: "网络调试",
+          //       perms: "",
+          //       pid: 1273,
+          //       remark: "",
+          //       section: null,
+          //       sort: 300,
+          //       status: "enabled",
+          //       type: "V",
+          //       updateTime: null,
+          //       url: "/iot/debug"
+          //     }
+          //   ],
+          //   createTime: "2023-05-23",
+          //   icon: "iz-icon-debug",
+          //   id: 1273,
+          //   msn: "iot",
+          //   name: "调试工具",
+          //   perms: null,
+          //   pid: 1224,
+          //   remark: "",
+          //   section: null,
+          //   sort: 320,
+          //   status: "enabled",
+          //   type: "M",
+          //   updateTime: null,
+          //   url: "#"
+          // }
         ],
         createTime: "2023-05-23",
         icon: "iz-icon-iiot",
         id: 1224,
         msn: "iot",
-        name: "工业物联网",
+        name: "智居数据管理",
         perms: null,
         pid: 0,
+        remark: "",
+        section: null,
+        sort: 30,
+        status: "enabled",
+        type: "M",
+        updateTime: null,
+        url: "#"
+      },
+      {
+        children: null,
+        createTime: "2023-05-23",
+        icon: "iz-icon-sys-monitor",
+        id: 1200,
+        msn: "iot",
+        name: "智能家居数据分析",
+        perms: null,
+        pid: 1200,
         remark: "",
         section: null,
         sort: 30,

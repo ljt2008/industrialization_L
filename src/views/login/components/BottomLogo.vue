@@ -1,7 +1,7 @@
 <template>
   <div class="big">
-    <div class="top">name团队力作iot后台控制系统</div>
-    <div class="btm">- name-team</div>
+    <div class="top">柚见智居团队力作智慧家居平台</div>
+    <div class="btm">-- 柚见智居</div>
   </div>
   </template>
 

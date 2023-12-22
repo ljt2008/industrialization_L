@@ -4,7 +4,7 @@
       <div class="my-logo">
         <img src="@/../public/img/logo.png" alt="">
       </div>
-      <div class="my-font">name123</div>
+      <div class="my-font">柚见智居</div>
     </div>
   </div>
 </template>
@@ -20,7 +20,7 @@
   display: flex;
   flex-direction: column;
   height: 80px;
-  width: 80px;
+  width: 150px;
   /* background-color: pink; */
   .my-logo {
     flex: 0.5;
